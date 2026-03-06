@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MaaSuraksha - Select Language</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="language-container">
+
+<div class="language-card">
+
+<h1 class="title">MaaSuraksha</h1>
+<p class="subtitle">Select Your Language</p>
+
+<div class="language-buttons">
+
+<button onclick="selectLanguage('en')">English</button>
+<button onclick="selectLanguage('hi')">हिन्दी</button>
+<button onclick="selectLanguage('mr')">मराठी</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+function selectLanguage(lang){
+localStorage.setItem("language", lang)
+window.location.href="dashboard.html"
+}
+</script>
+
+</body>
+</html>
