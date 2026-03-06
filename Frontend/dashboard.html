@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>MaaSuraksha Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://unpkg.com/i18next@23.4.6/dist/umd/i18next.min.js"></script>
+
+<script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>MaaSuraksha</h1>
+
+<p data-i18n="subtitle"></p>
+
+</div>
+
+<div class="container">
+
+<div class="form-section">
+
+<h2 data-i18n="title"></h2>
+
+<form id="riskForm">
+
+<input type="number" id="age" data-i18n-placeholder="age">
+
+<input type="number" id="sbp" data-i18n-placeholder="sbp">
+
+<input type="number" id="dbp" data-i18n-placeholder="dbp">
+
+<input type="number" id="bs" data-i18n-placeholder="bs">
+
+<input type="number" id="temp" data-i18n-placeholder="temp">
+
+<input type="number" id="hr" data-i18n-placeholder="hr">
+
+<input type="number" id="hb" data-i18n-placeholder="hb">
+
+<button type="submit" data-i18n="predict"></button>
+
+</form>
+
+</div>
+
+<div class="result-section">
+
+<h2 data-i18n="result"></h2>
+
+<div id="riskLevel" class="risk-card"></div>
+
+<p id="recommendation"></p>
+
+<canvas id="shapChart"></canvas>
+
+</div>
+
+</div>
+
+</body>
+</html>
