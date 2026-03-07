@@ -13,8 +13,8 @@ import os
 # ----------------------------
 # Gemini API Configuration
 # ----------------------------
-load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+# load_dotenv()
+GEMINI_API_KEY =  st.secrets["GOOGLE_API_KEY"]
 
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY not found. Please check your .env file.")
