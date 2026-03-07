@@ -1,97 +1,166 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maternal Health Risk Predictor</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Maternal Health Risk Predictor</h1>
-        <form id="predictForm">
-            <label for="language">Language</label>
-            <select id="language" required>
-                <option value="">--Choose Language--</option>
-                <option value="English">English</option>
-                <option value="Marathi">Marathi</option>
-                <option value="Hindi">Hindi</option>
-                <option value="Tamil">Tamil</option>
-                <option value="Telugu">Telugu</option>
-            </select>
-
-            <label for="age">Age</label>
-            <input type="number" id="age" min="15" max="50" value="25" required>
-
-            <label for="systolicBP">Systolic BP</label>
-            <input type="number" id="systolicBP" min="80" max="200" value="120" required>
-
-            <label for="diastolicBP">Diastolic BP</label>
-            <input type="number" id="diastolicBP" min="50" max="130" value="80" required>
-
-            <label for="bloodSugar">Blood Sugar Level</label>
-            <input type="number" id="bloodSugar" min="3.0" max="20.0" step="0.1" value="5.5" required>
-
-            <label for="heartRate">Heart Rate</label>
-            <input type="number" id="heartRate" min="40" max="180" value="70" required>
-
-            <label for="bodyTemp">Body Temperature (°F)</label>
-            <input type="number" id="bodyTemp" min="95.0" max="105.0" step="0.1" value="98.6" required>
-
-            <button type="submit">Predict Risk</button>
-        </form>
-        <div id="result"></div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maternal Health Risk Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Maternal Health Risk Predictor</h1>
-        <form id="predictForm">
-            <label for="language">Language</label>
-            <select id="language" required>
-                <option value="">--Choose Language--</option>
-                <option value="English">English</option>
-                <option value="Hindi">Hindi</option>
-                <option value="Marathi">Marathi</option>
-                <option value="Telugu">Telugu</option>
-                <option value="Tamil">Tamil</option>
-            </select>
 
-            <label for="age">Age</label>
-            <input type="number" id="age" min="15" max="50" value="25" required>
+    <!-- Background orbs -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
 
-            <label for="systolicBP">Systolic BP</label>
-            <input type="number" id="systolicBP" min="80" max="200" value="120" required>
+    <div class="page-wrapper">
 
-            <label for="diastolicBP">Diastolic BP</label>
-            <input type="number" id="diastolicBP" min="50" max="130" value="80" required>
+        <!-- Header -->
+        <header class="site-header">
+            <div class="header-icon">🤱</div>
+            <div class="header-text">
+                <span class="header-tag">ASHA WORKER TOOL</span>
+                <h1>Maternal Health Risk Predictor</h1>
+                <p>AI-powered assessment · Multilingual · Instant explanation</p>
+            </div>
+        </header>
 
-            <label for="bloodSugar">Blood Sugar Level</label>
-            <input type="number" id="bloodSugar" min="3.0" max="20.0" step="0.1" value="5.5" required>
+        <!-- Main two-column layout -->
+        <main class="main-grid">
 
-            <label for="heartRate">Heart Rate</label>
-            <input type="number" id="heartRate" min="40" max="180" value="70" required>
+            <!-- LEFT — Input Form -->
+            <section class="panel panel-form">
 
-            <label for="bodyTemp">Body Temperature (°F)</label>
-            <input type="number" id="bodyTemp" min="95.0" max="105.0" step="0.1" value="98.6" required>
+                <!-- Language -->
+                <div class="field-group">
+                    <div class="group-label">🌐 Language</div>
+                    <div class="select-wrapper">
+                        <select id="language" required>
+                            <option value="">— Choose Language —</option>
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi — हिन्दी</option>
+                            <option value="Marathi">Marathi — मराठी</option>
+                            <option value="Telugu">Telugu — తెలుగు</option>
+                            <option value="Tamil">Tamil — தமிழ்</option>
+                            <option value="Gujarati">Gujarati — ગુજરાતી</option>
+                            <option value="Odia">Odia — ଓଡ଼ିଆ</option>
+                            <option value="Bhojpuri">Bhojpuri — भोजपुरी</option>
+                            <option value="Bengali">Bengali — বাংলা</option>
+                            <option value="Kannada">Kannada — ಕನ್ನಡ</option>
+                            <option value="Malayalam">Malayalam — മലയാളം</option>
+                            <option value="Punjabi">Punjabi — ਪੰਜਾਬੀ</option>
+                            <option value="Urdu">Urdu — اردو</option>
+                            <option value="Assamese">Assamese — অসমীয়া</option>
+                        </select>
+                        <span class="select-arrow">▾</span>
+                    </div>
+                </div>
 
-            <button type="submit">Predict Risk</button>
-        </form>
-        <div id="result"></div>
-        <div id="sentences"></div>
+                <!-- Vitals grid -->
+                <div class="field-group">
+                    <div class="group-label">📋 Patient Vitals</div>
+                    <div class="vitals-grid">
+
+                        <div class="vital-field">
+                            <label for="age">Age <span class="unit">years</span></label>
+                            <input type="number" id="age" min="10" max="60" value="25" required>
+                            <span class="hint">Range: 10 – 60</span>
+                        </div>
+
+                        <div class="vital-field">
+                            <label for="systolicBP">Systolic BP <span class="unit">mmHg</span></label>
+                            <input type="number" id="systolicBP" min="70" max="220" value="120" required>
+                            <span class="hint">Normal &lt; 120</span>
+                        </div>
+
+                        <div class="vital-field">
+                            <label for="diastolicBP">Diastolic BP <span class="unit">mmHg</span></label>
+                            <input type="number" id="diastolicBP" min="40" max="140" value="80" required>
+                            <span class="hint">Normal &lt; 80</span>
+                        </div>
+
+                        <div class="vital-field">
+                            <label for="bloodSugar">Blood Sugar <span class="unit">mmol/L</span></label>
+                            <input type="number" id="bloodSugar" min="2.0" max="30.0" step="0.1" value="5.5" required>
+                            <span class="hint">Normal 4 – 7</span>
+                        </div>
+
+                        <div class="vital-field">
+                            <label for="heartRate">Heart Rate <span class="unit">bpm</span></label>
+                            <input type="number" id="heartRate" min="30" max="220" value="70" required>
+                            <span class="hint">Normal 60 – 100</span>
+                        </div>
+
+                        <div class="vital-field">
+                            <label for="bodyTemp">Body Temp <span class="unit">°F</span></label>
+                            <input type="number" id="bodyTemp" min="94.0" max="107.0" step="0.1" value="98.6" required>
+                            <span class="hint">Normal 97 – 99</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button id="submitBtn" type="button" onclick="handleSubmit()">
+                    <span class="btn-icon">🔍</span>
+                    <span class="btn-text">Analyse Risk</span>
+                    <span class="btn-loader" id="btnLoader"></span>
+                </button>
+
+            </section>
+
+            <!-- RIGHT — Results Panel -->
+            <section class="panel panel-results" id="resultsPanel">
+
+                <!-- Empty state -->
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon">🩺</div>
+                    <p>Fill in patient vitals<br>and click <strong>Analyse Risk</strong></p>
+                </div>
+
+                <!-- Results -->
+                <div class="results-content" id="resultsContent" style="display:none;">
+
+                    <div class="risk-banner" id="riskBadge">
+                        <div class="risk-icon-wrap" id="riskIcon"></div>
+                        <div>
+                            <div class="risk-label" id="riskLabel"></div>
+                            <div class="risk-sub"   id="riskSub"></div>
+                        </div>
+                    </div>
+
+                    <div class="vitals-summary" id="vitalsSummary"></div>
+
+                    <div>
+                        <div class="section-title">🤖 AI Health Explanation</div>
+                        <div class="explain-box" id="explanationBox"></div>
+                    </div>
+
+                    <div id="translationSection" style="display:none;">
+                        <div class="section-title" id="translationTitle"></div>
+                        <div class="translate-box" id="translationBox"></div>
+                    </div>
+
+                </div>
+
+                <!-- Error state -->
+                <div class="error-state" id="errorState" style="display:none;">
+                    <div class="error-icon">⚠️</div>
+                    <p>Could not connect to the server.<br>Make sure the API is running on <code>localhost:8000</code></p>
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            Built for ASHA Workers &nbsp;·&nbsp; Powered by XGBoost + Gemini AI
+        </footer>
+
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
