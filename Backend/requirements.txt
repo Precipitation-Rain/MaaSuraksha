@@ -6,3 +6,7 @@ shap
 xgboost
 python-dotenv
 google-generativeai
+dotenv
+streamlit
+matplotlib
+seaborn
