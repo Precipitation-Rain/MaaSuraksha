@@ -7,14 +7,11 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from deep_translator import GoogleTranslator
 import google.generativeai as genai
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 import os
 
-# ----------------------------
-# Gemini API Configuration
-# ----------------------------
-# load_dotenv()
-GEMINI_API_KEY =  st.secrets["GOOGLE_API_KEY"]
+load_dotenv()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY not found. Please check your .env file.")
