@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from deep_translator import GoogleTranslator
 import google.generativeai as genai
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
 # ----------------------------
