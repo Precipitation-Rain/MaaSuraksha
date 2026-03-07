@@ -6,7 +6,7 @@ shap
 xgboost
 python-dotenv
 google-generativeai
-python-dotenv
 streamlit
 matplotlib
 seaborn
+deep-translator
