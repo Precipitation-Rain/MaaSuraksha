@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pandas
+numpy
+shap
+xgboost
+python-dotenv
+google-generativeai
