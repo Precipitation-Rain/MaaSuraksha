@@ -1,120 +1,87 @@
-body{
-font-family:Arial;
-margin:0;
-background:#f4f7fb;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
-/* Language page */
-
-.language-card{
-background:rgba(255,255,255,0.9);
-padding:40px;
-border-radius:15px;
-text-align:center;
-width:320px;
-box-shadow:0 8px 25px rgba(0,0,0,0.2);
+.container {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-
-
-.language-container{
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-height:100vh;
-background-image:url("image.png");
-background-size:cover;
-background-position:center;
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
 }
 
-
-
-.language-buttons button{
-display:block;
-width:220px;
-margin:10px;
-padding:12px;
-font-size:18px;
-border:none;
-border-radius:8px;
-background:#14B8A6;
-color:white;
-cursor:pointer;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
 }
 
-.language-buttons button:hover{
-background:#0F766E;
+label {
+    font-weight: 600;
+    color: #555;
 }
 
-/* Dashboard */
-
-.header{
-background:#0F766E;
-color:white;
-text-align:center;
-padding:20px;
+input, select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-.container{
-display:flex;
-justify-content:space-around;
-padding:30px;
+input:focus, select:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.2);
+    outline: none;
 }
 
-.form-section{
-background:white;
-padding:25px;
-border-radius:10px;
-width:35%;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+button {
+    padding: 12px;
+    background: #6a11cb;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
-.result-section{
-background:white;
-padding:25px;
-border-radius:10px;
-width:40%;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+button:hover {
+    background: #2575fc;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-input{
-width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:6px;
-border:1px solid #ccc;
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 18px;
+    min-height: 40px;
+    text-align: center;
+    color: #fff;
+    transition: all 0.3s ease;
 }
 
-button{
-width:100%;
-padding:12px;
-background:#14B8A6;
-border:none;
-color:white;
-font-size:16px;
-border-radius:6px;
-cursor:pointer;
-}
-
-button:hover{
-background:#0F766E;
-}
-
-.risk-card{
-font-size:22px;
-font-weight:bold;
-margin:15px 0;
-}
-
-.low{
-color:#10B981;
-}
-
-.medium{
-color:#F59E0B;
-}
-
-.high{
-color:#EF4444;
+@media (max-width: 450px) {
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
 }

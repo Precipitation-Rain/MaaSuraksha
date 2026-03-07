@@ -1,131 +1,45 @@
-const resources = {
+document.getElementById("predictForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-en:{
-translation:{
-subtitle:"AI Maternal Health Risk Assessment",
-title:"Enter Patient Vitals",
-age:"Age",
-sbp:"Systolic BP",
-dbp:"Diastolic BP",
-bs:"Blood Sugar",
-temp:"Body Temperature",
-hr:"Heart Rate",
-hb:"Hemoglobin",
-predict:"Predict Risk",
-result:"Risk Result"
-}
-},
+    // Collect input values
+    const data = {
+        age: parseInt(document.getElementById("age").value),
+        systolic_bp: parseFloat(document.getElementById("systolicBP").value),
+        diastolic_bp: parseFloat(document.getElementById("diastolicBP").value),
+        blood_sugar: parseFloat(document.getElementById("bloodSugar").value),
+        heart_rate: parseInt(document.getElementById("heartRate").value),
+        body_temp: parseFloat(document.getElementById("bodyTemp").value)
+    };
 
-hi:{
-translation:{
-subtitle:"एआई मातृ स्वास्थ्य जोखिम मूल्यांकन",
-title:"रोगी के स्वास्थ्य विवरण दर्ज करें",
-age:"आयु",
-sbp:"सिस्टोलिक रक्तचाप",
-dbp:"डायस्टोलिक रक्तचाप",
-bs:"ब्लड शुगर",
-temp:"शरीर का तापमान",
-hr:"हृदय गति",
-hb:"हीमोग्लोबिन",
-predict:"जोखिम का अनुमान लगाएं",
-result:"जोखिम परिणाम"
-}
-},
+    try {
+        // Send request to backend
+        const response = await fetch("http://127.0.0.1:8000/predict", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
 
-mr:{
-translation:{
-subtitle:"एआय मातृ आरोग्य जोखीम मूल्यांकन",
-title:"रुग्णाची माहिती भरा",
-age:"वय",
-sbp:"सिस्टोलिक रक्तदाब",
-dbp:"डायस्टोलिक रक्तदाब",
-bs:"रक्तातील साखर",
-temp:"शरीराचे तापमान",
-hr:"हृदय गती",
-hb:"हीमोग्लोबिन",
-predict:"जोखीम तपासा",
-result:"जोखीम परिणाम"
-}
-}
+        if (!response.ok) throw new Error("Network response was not ok");
 
-}
+        const result = await response.json();
+        const resultDiv = document.getElementById("result");
+        resultDiv.textContent = `Predicted Risk: ${result.prediction}`;
 
-let lang = localStorage.getItem("language") || "en"
+        // Color coding based on risk
+        if (result.prediction.toLowerCase().includes("low")) {
+            resultDiv.style.backgroundColor = "#4CAF50"; // green
+        } else if (result.prediction.toLowerCase().includes("medium")) {
+            resultDiv.style.backgroundColor = "#FF9800"; // orange
+        } else if (result.prediction.toLowerCase().includes("high")) {
+            resultDiv.style.backgroundColor = "#F44336"; // red
+        } else {
+            resultDiv.style.backgroundColor = "#607D8B"; // grey
+        }
 
-i18next.init({
-lng: lang,
-resources
-}, function(err,t){
-
-updateContent()
-
-})
-
-function updateContent(){
-
-document.querySelectorAll("[data-i18n]").forEach(el=>{
-el.innerHTML = i18next.t(el.getAttribute("data-i18n"))
-})
-
-document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
-el.placeholder = i18next.t(el.getAttribute("data-i18n-placeholder"))
-})
-
-}
-
-/* Demo risk prediction */
-
-document.getElementById("riskForm").addEventListener("submit",function(e){
-
-e.preventDefault()
-
-let sbp = document.getElementById("sbp").value
-let hb = document.getElementById("hb").value
-
-let risk=""
-let advice=""
-
-if(sbp>140 || hb<8){
-
-risk="HIGH RISK"
-advice="Refer patient to PHC immediately"
-
-document.getElementById("riskLevel").className="risk-card high"
-
-}
-
-else if(sbp>120){
-
-risk="MEDIUM RISK"
-advice="Monitor vitals twice per week"
-
-document.getElementById("riskLevel").className="risk-card medium"
-
-}
-
-else{
-
-risk="LOW RISK"
-advice="Continue normal monitoring"
-
-document.getElementById("riskLevel").className="risk-card low"
-
-}
-
-document.getElementById("riskLevel").innerText=risk
-document.getElementById("recommendation").innerText=advice
-
-let ctx=document.getElementById("shapChart")
-
-new Chart(ctx,{
-type:'bar',
-data:{
-labels:["BP","Hemoglobin","Sugar","Heart Rate","Age"],
-datasets:[{
-label:"Feature Impact",
-data:[40,30,15,10,5]
-}]
-}
-})
-
-})
+    } catch (error) {
+        const resultDiv = document.getElementById("result");
+        resultDiv.textContent = `Error: ${error.message}`;
+        resultDiv.style.backgroundColor = "#F44336";
+        console.error("Error:", error);
+    }
+});
