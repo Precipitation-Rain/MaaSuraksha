@@ -155,30 +155,49 @@ html, body, [class*="css"] {
 [data-baseweb="select"] input {
     color: #1e293b !important;
 }
-[data-baseweb="popover"] li {
+/* ── Dropdown options – desktop + mobile ── */
+[data-baseweb="popover"] ul,
+[data-baseweb="popover"] li,
+[data-baseweb="popover"] [role="option"],
+[data-baseweb="menu"] ul,
+[data-baseweb="menu"] li,
+[data-baseweb="menu"] [role="option"] {
+    background-color: #1e293b !important;
     color: #ffffff !important;
-    background-color: #1e293b !important;
 }
-[data-baseweb="popover"] ul {
-    background-color: #1e293b !important;
-}
-[data-baseweb="popover"] [role="option"] {
-    background-color: #1e293b !important;
-    color: #ffffff !important;
-}
-[data-baseweb="popover"] [role="option"]:hover {
+[data-baseweb="popover"] [role="option"]:hover,
+[data-baseweb="menu"]    [role="option"]:hover,
+[data-baseweb="popover"] [aria-selected="true"],
+[data-baseweb="menu"]    [aria-selected="true"] {
     background-color: #0e7490 !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
 }
-[data-baseweb="menu"] {
-    background-color: #1e293b !important;
-}
-[data-baseweb="menu"] li {
+/* Mobile listbox fallback */
+ul[role="listbox"],
+ul[role="listbox"] li,
+ul[role="listbox"] [role="option"],
+div[role="listbox"],
+div[role="listbox"] [role="option"] {
     background-color: #1e293b !important;
     color: #ffffff !important;
 }
-[data-baseweb="menu"] [role="option"]:hover,
-[data-baseweb="menu"] [aria-selected="true"] {
+li[role="option"]:hover,
+div[role="option"]:hover,
+li[role="option"][aria-selected="true"],
+div[role="option"][aria-selected="true"] {
     background-color: #0e7490 !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+}
+/* Override Streamlit default light blue hover */
+[data-baseweb="list-item"]:hover,
+[data-baseweb="list-item"]:focus,
+[data-baseweb="menu-item"]:hover,
+[data-baseweb="menu-item"]:focus {
+    background-color: #0e7490 !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
 }
 label {
     font-family: 'Sora', sans-serif !important;
