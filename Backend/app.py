@@ -10,6 +10,9 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 import os
 
+# ----------------------------
+# Gemini API Configuration
+# ----------------------------
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
@@ -154,6 +157,28 @@ html, body, [class*="css"] {
 }
 [data-baseweb="popover"] li {
     color: #ffffff !important;
+    background-color: #1e293b !important;
+}
+[data-baseweb="popover"] ul {
+    background-color: #1e293b !important;
+}
+[data-baseweb="popover"] [role="option"] {
+    background-color: #1e293b !important;
+    color: #ffffff !important;
+}
+[data-baseweb="popover"] [role="option"]:hover {
+    background-color: #0e7490 !important;
+}
+[data-baseweb="menu"] {
+    background-color: #1e293b !important;
+}
+[data-baseweb="menu"] li {
+    background-color: #1e293b !important;
+    color: #ffffff !important;
+}
+[data-baseweb="menu"] [role="option"]:hover,
+[data-baseweb="menu"] [aria-selected="true"] {
+    background-color: #0e7490 !important;
 }
 label {
     font-family: 'Sora', sans-serif !important;
